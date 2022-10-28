@@ -1,20 +1,6 @@
-# Docker
 - task: Docker@2
   inputs:
-    command: 'buildAndPush'
-    Dockerfile: '**/Dockerfile'
-# Build a Docker image
-# https://docs.microsoft.com/azure/devops/pipelines/languages/docker
-
-trigger:
-- master
-
-resources:
-- repo: self
-
-variables:
-  tag: '$(Build.BuildId)'
-- task: Docker@2
-  inputs:
+    containerRegistry: 'containerimageregistryconnection'
+    repository: 'myimage01'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
