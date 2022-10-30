@@ -1,0 +1,10 @@
+trigger:
+- master
+
+steps:
+- task: Docker@2
+  inputs:
+    containerRegistry: 'containerimageregistryconnection'
+    repository: 'myimage01'
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
