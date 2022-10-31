@@ -41,3 +41,9 @@ stages:
       inputs:
         Contents: 'hello-node.yml'
         TargetFolder: '$(build.artifactstagingdirectory)'
+
+    - task: PublishBuildArtifacts@1
+      inputs:
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        ArtifactName: 'publish'
+        publishLocation: 'Container'
